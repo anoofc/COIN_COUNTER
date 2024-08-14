@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "ANOOF C",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-st-nucleo-c031c6", "id": "nucleo", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -34.97, "left": 284.8, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 159.8,
+      "left": -153.6,
+      "attrs": { "color": "green", "key": "1", "bounce": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 227,
+      "left": -153.6,
+      "attrs": { "color": "red", "key": "2" }
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:PA3", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:PA2", "", [] ],
+    [ "lcd1:VDD", "nucleo:5V.2", "red", [ "v249.6", "h-220.7", "v-144", "h-66.67" ] ],
+    [ "lcd1:VSS", "nucleo:GND.5", "black", [ "v240", "h-220.8", "v-125.63" ] ],
+    [ "lcd1:RS", "nucleo:PA10", "green", [ "v0" ] ],
+    [ "lcd1:E", "nucleo:PB3", "green", [ "v0" ] ],
+    [ "lcd1:D7", "nucleo:PA3", "green", [ "v0" ] ],
+    [ "lcd1:D6", "nucleo:PA5", "green", [ "v0" ] ],
+    [ "lcd1:D5", "nucleo:PA6", "green", [ "v0" ] ],
+    [ "lcd1:D4", "nucleo:PA7", "green", [ "v0" ] ],
+    [ "lcd1:A", "lcd1:VDD", "green", [ "v-28.8", "h-115.3" ] ],
+    [ "lcd1:K", "lcd1:VSS", "green", [ "v-38.4", "h-144" ] ],
+    [ "lcd1:V0", "nucleo:3V3.2", "green", [ "h-192.3", "v95.17" ] ],
+    [ "btn1:1.r", "btn2:1.r", "black", [ "h29", "v76.8" ] ],
+    [ "nucleo:GND.6", "btn1:1.r", "black", [ "h-96.53", "v0.83" ] ],
+    [ "btn1:2.l", "nucleo:PB11", "green", [ "h-28.8", "v125" ] ],
+    [ "btn2:2.l", "nucleo:PB1", "green", [ "h-19.2", "v9.8" ] ]
+  ],
+  "dependencies": {}
+}
